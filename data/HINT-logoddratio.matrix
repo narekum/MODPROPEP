@@ -1,0 +1,42 @@
+# Narendra Kumar, PhD
+# Institute of Cancer Sciences
+# University of Glasgow
+# UK
+#
+# mailto:narekum@gmail.com
+#
+# Energy-based prediction of amino acid-nucleotide base recognition
+# Anna MaraBotti et al 2008
+# Journal of Computational Chemistry
+#
+# Log odd likelihood ratios for AA-B pairs calculated based on
+# overall interaction count reported in Table2 of above publication.
+# S(ij) = ln [f(ij) / ( f(i) * f(j) )]
+# where f(ij) is interaction count of ith amino acid with jth nbase
+#       f(i) is frequency of ith amino acid in swissprot
+#       f(j) is frequency of jth nbase (0.25)
+#
+# RFreq are amino acid composition in the UniProtKB/Swiss-Prot data
+# bank (UniProtKB/Swiss-Prot release 2013_04 - April 2013).
+#	A	C	G	T	#Res	RFreq
+A	-1.49	-1.35	-1.01	-0.40	#Ala	0.082
+R	1.21	1.40	1.59	1.60	#Arg	0.055
+N	1.27	0.66	0.84	1.43	#Asn	0.040
+D	-0.82	0.13	0.03	-0.40	#Asp	0.054
+C	-0.90	-0.74	-0.74	-1.59	#Cys	0.013
+Q	0.39	0.20	0.40	0.82	#Gln	0.039
+E	-1.39	-0.20	0.00	-1.03	#Glu	0.067
+G	-0.50	-0.50	-0.31	-0.15	#Gly	0.070
+H	-0.17	0.12	0.42	0.68	#His	0.022
+I	-0.80	-1.26	-1.26	-0.77	#Ile	0.059
+L	-1.39	-2.74	-2.29	-0.78	#Leu	0.096
+K	0.06	0.52	0.85	0.51	#Lys	0.058
+M	-0.12	-0.74	-0.59	-0.04	#Met	0.024
+F	-0.93	-1.12	-0.72	0.11	#Phe	0.038
+P	-1.41	-2.59	-2.18	-1.08	#Pro	0.047
+S	-0.45	-0.66	0.02	0.30	#Ser	0.065
+T	-0.09	-0.07	0.03	0.62	#Thr	0.053
+W	-1.33	-0.23	-0.35	-0.64	#Trp	0.010
+Y	-0.36	-0.45	-0.50	0.29	#Tyr	0.029
+V	-0.39	-1.35	-0.76	-0.00	#Val	0.068
+#

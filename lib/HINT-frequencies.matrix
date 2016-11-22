@@ -1,0 +1,37 @@
+# Narendra Kumar, PhD
+# Institute of Cancer Sciences
+# University of Glasgow
+# UK
+#
+# mailto:narekum@gmail.com
+#
+# Energy-based prediction of amino acid-nucleotide base recognition
+# Anna MaraBotti et al 2008
+# Journal of Computational Chemistry
+#
+# Normalized HINT score fraction (Table2). Overall interaction count
+#   
+# RFreq are amino acid composition in the UniProtKB/Swiss-Prot data
+# bank (UniProtKB/Swiss-Prot release 2013_04 - April 2013).
+#	A	C	G	T	#Res	RFreq
+A	21	24	34	62	#Ala	0.082
+R	210	252	306	309	#Arg	0.055
+N	162	88	105	189	#Asn	0.040
+D	27	70	63	41	#Asp	0.054
+C	6	7	7	3	#Cys	0.013
+Q	65	54	66	100	#Gln	0.039
+E	19	62	76	27	#Glu	0.067
+G	48	48	58	68	#Gly	0.070
+H	21	28	38	49	#His	0.022
+I	30	19	19	31	#Ile	0.059
+L	27	7	11	50	#Leu	0.096
+K	70	110	154	109	#Lys	0.058
+M	24	13	15	26	#Met	0.024
+F	17	14	21	48	#Phe	0.038
+P	13	4	6	18	#Pro	0.047
+S	47	38	75	99	#Ser	0.065
+T	55	56	62	112	#Thr	0.053
+W	3	9	8	6	#Trp	0.010
+Y	23	21	20	44	#Tyr	0.029
+V	52	20	36	77	#Val	0.068
+#
