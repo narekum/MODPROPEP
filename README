@@ -54,26 +54,42 @@
                                                   \__ \ (_| (_) | | |  __/
                                                   |___/\___\___/|_|  \___|
 
-Usage: MODPROPEP_score.pl < -p PDBFILE -r RECEPTORCHAIN -l LIGANDCHAIN -m SCORINGMATRIX > [Options]
+Usage: 
+MODPROPEP_score.pl < -p PDBFILE -r RECEPTORCHAIN -l LIGANDCHAIN -m SCORINGMATRIX -o outfile > [Options]
 
 Options:
   -h, --help       Print this help
-  -p, --pdbfile    Pdb file containing coordinates of protein(receptor) and ligand(peptide) (required)
+
+  -p, --pdbfile    Pdb file containing coordinates of protein(receptor) 
+                   and ligand(peptide) (required)
+
   -r, --rchain     Receptor chain letter in pdb coordinate file (required)
+
   -l, --lchain     Ligand chain letter in pdb coordinate file (required)
+
   -s, --sequence   protein sequence to be scanned in fasta format (required)
+
   -o, --outfile    name of the outputfile (required)
+
   -m, --matrixfile Scoring matrix file properly formated (required)
-  -d, --distance   Distance for considering two atoms to be in contact in angstroms ( default 4.5)
-  -a, --atomtype   Which atom types should be considered for contact between receptor and ligand  (default any)
+
+  -d, --distance   Distance for considering two atoms to be in contact in 
+                   angstroms ( default 4.5)
+
+  -a, --atomtype   Which atom types should be considered for contact between 
+                   receptor and ligand  (default any)
                    Options:
                    any=any atoms between receptor and ligand
-                   cb =c-beta; only C-beta to C-beta distances between receptor and ligand will be considered
-  -e, --excludebb  Exclude backbone (sugar-phosphate atoms in DNA; N,C,CA,O atoms in Peptide/proteins) (default F)
+                   cb =c-beta; only C-beta to C-beta distances between receptor
+                               and ligand will be considered
+
+  -e, --excludebb  Exclude backbone (sugar-phosphate atoms in DNA; N,C,CA,O 
+                   atoms in Peptide/proteins) (default F)
                    Options: T (true), F (false)
 
 Examples:
-$ perl MODPROPEP_score.pl --pdbfile complex.pdb -rchain A -lchain L -matrixfile MJ.mat -distance 6 -atomtype CB
+$ perl MODPROPEP_score.pl --pdbfile complex.pdb -rchain A -lchain L \\ 
+       -matrixfile MJ.mat -distance 6 -atomtype CB -o outfile
 \or\
 $ perl MODPROPEP_score.pl --p complex.pdb -r A -l L -m MJ.mat -d 6 -a CB
 
