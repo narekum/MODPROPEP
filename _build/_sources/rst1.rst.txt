@@ -1,0 +1,18 @@
+#############
+INLINE MARKUP
+#############
+
+Formatting the text
+===================
+
+Styling the text as we write the paragraphs
+
+Styles
+------
+
+1. *Italics*
+#. *Emphasis*
+#. **Bold**
+#. `interpreted text` 
+
+

@@ -1,0 +1,78 @@
+
+MODPROPEP Programs
+******************
+There should only be one of these per page and this will also -- when
+converting to pdf -- be used for the chapters.
+
+MODPROPEP score
+===============
+
+:: 
+
+           __  __  ____  _____  _____  _____   ____  _____  ______ _____
+          |  \/  |/ __ \|  __ \|  __ \|  __ \ / __ \|  __ \|  ____|  __ \
+          | \  / | |  | | |  | | |__) | |__) | |  | | |__) | |__  | |__) |
+          | |\/| | |  | | |  | |  ___/|  _  /| |  | |  ___/|  __| |  ___/
+          | |  | | |__| | |__| | |    | | \ \| |__| | |    | |____| |
+          |_|  |_|\____/|_____/|_|    |_|  \_\\____/|_|    |______|_|
+                                                   ___  ___ ___  _ __ ___
+                                                  / __|/ __/ _ \| .__/ _ \
+                                                  \__ \ (_| (_) | | |  __/
+                                                  |___/\___\___/|_|  \___|
+
+
+
+Usage
+_____
+
+::
+
+ MODPROPEP_score.pl < -p PDBFILE -r RECEPTORCHAIN -l LIGANDCHAIN -m SCORINGMATRIX -o outfile > [Options]
+
+
+Options
+_______
+
+  -h, --help            Print this help
+
+  -p, --pdbfile         Pdb file containing coordinates of protein (receptor) 
+                        and ligand(peptide) (required)
+
+  -r, --rchain          Receptor chain identifier letter in pdb coordinate file
+                        (required)
+
+  -l, --lchain          Ligand chain identifier letter in pdb coordinate file 
+                        (required)
+
+  -s, --sequence        File name of protein sequence in fasta format to be 
+                        scanned (required)
+
+  -o, --outfile         Name of the outputfile (required)
+
+  -m, --matrixfile      Scoring matrix file properly formated (required)
+
+  -d, --distance        Distance for considering two atoms to be in contact in 
+                        angstroms ( default 4.5)
+
+  -a, --atomtype        Which atom types should be considered for contact 
+                        between receptor and ligand  (default "any")
+                        Options:
+                        any=any atoms between receptor and ligand
+                        cb=c-beta; only C-beta to C-beta distances between 
+                        receptor and ligand will be considered
+
+  -e, --excludebb       Exclude backbone (sugar-phosphate atoms in DNA; N,C,CA,O
+                        atoms in Peptide/proteins) (default F)
+                        Options: T (true), F (false)
+
+Examples
+________
+
+::
+
+ $ perl MODPROPEP_score.pl --pdbfile complex.pdb -rchain A -lchain L \\ 
+       -matrixfile MJ.mat -distance 6 -atomtype CB -o outfile
+
+ $ perl MODPROPEP_score.pl -p complex.pdb -r A -l L -m MJ.mat -d 6 -a CB
+
+
