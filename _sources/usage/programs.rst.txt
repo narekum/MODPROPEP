@@ -4,8 +4,8 @@ MODPROPEP Programs
 There should only be one of these per page and this will also -- when
 converting to pdf -- be used for the chapters.
 
-MODPROPEP score
-===============
+MODPROPEP_score.pl
+==================
 
 :: 
 
@@ -74,5 +74,91 @@ ________
        -matrixfile MJ.mat -distance 6 -atomtype CB -o outfile
 
  $ perl MODPROPEP_score.pl -p complex.pdb -r A -l L -m MJ.mat -d 6 -a CB
+
+
+MODPROPEP_libgen.pl
+===================
+
+::
+
+           __  __  ____  _____  _____  _____   ____  _____  ______ _____
+          |  \/  |/ __ \|  __ \|  __ \|  __ \ / __ \|  __ \|  ____|  __ \
+          | \  / | |  | | |  | | |__) | |__) | |  | | |__) | |__  | |__) |
+          | |\/| | |  | | |  | |  ___/|  _  /| |  | |  ___/|  __| |  ___/
+          | |  | | |__| | |__| | |    | | \ \| |__| | |    | |____| |
+          |_|  |_|\____/|_____/|_|    |_|  \_\\____/|_|    |______|_|
+                                           _     _ _
+                                          | |   (_) |__   __ _  ___ _ __
+                                          | |   | | |_ \ / _` |/ _ \ |_ \
+                                          | |___| | |_) | (_| |  __/ | | |
+                                          |_____|_|_.__/ \__, |\___|_| |_|
+                                                         |___/
+
+Usage
+_____
+
+::
+
+ MODPROPEP_libgen.pl -l library_name -t direcory_of_templates
+
+ MODPROPEP_libgen.pl -info
+
+
+Options
+_______
+
+  -h, --help      Print this help
+  -l, --lib       Name of the library to be created.
+  -t, --temp      Name of the directory containing the templates. The templates
+                    should be copied to this directory after necessary formatting 
+  -i, --info      Prints library information. (Default F)
+                  Options
+                  P=Prints a list of libraries installed.
+                  "library_name"=Prints information of "library_name" if installed
+
+Details
+_______
+
+Although some programs in libgen can be used as standalone, you will need a library of templates to work with MODPROPEP. MODPROPEP_libgen.pl is the utility to create, maintain and update MODPROPEP library. More than one libraries can be maintained at the same time. 
+
+Requirements
+	**TEMPLATE SOURCE**: You will need to create a directory <TEMPLATE SOURCE> and copy all the templates as "xxxx.pdb" files. The template files should only contain the polypeptide chains that are required to be mutated. All the templates must contain same number of chains and chain identifiers whould be exactly the same in all the templates.
+
+	**templates.list**: <TEMPLATES SOURCE> directory should have a file "templates.list" containing a list of all the templates in the following format 
+
+		::
+
+		 @chain A:PROTEIN_KINASE
+		 @chain C:Peptide
+		 @index=A
+		 1APM.pdb	AC
+		 2PHK.pdb	AC
+		 1JBP.pdb	AC
+
+
+	 The lines starting with **@chain** store the name of the chain in the pdb template file. There should be one line each for each chain in the templates. The line starting with **@index** stores the chains name that are marked for indexing. The protein sequences of the chains marked for indexing are extracted and copied in <chain_name>_<chain_id>.fasta file in the index folder of the library. These sequence files could be indexed using the blast suite. These index files could be searched for detecting the best matching chain for an unknown sequence, which could be used to build its 3D model.
+
+	 Rest of the lines in the **templates.list** file are the list of templates in the directory. Each file contain the pdb file names follwed by a <tab> followed by the chain names (without space).
+
+	**-h, --help**
+	 Prints the help. 
+
+	**-l, --lib**
+	 The name of the library to be build. A library will be created with this name. If the library name provided already exists then new templates will be added to it.
+
+	**-t, --temp**
+	 The directory containing the source templates. This directory must contain "templates.list" file in the proper format (see above). PDB templates in this directory will be copied to the library specified with -l flag.
+
+	**-i, --info**
+	 Prints the information about the installed libraries.   
+
+	 Options 
+
+	  P = Prints a list of installed libraries. 
+
+	  Library_name = Prints information of library "Library_name" if it exists.
+
+  
+ 
 
 

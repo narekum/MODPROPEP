@@ -82,10 +82,16 @@
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">MODPROPEP Programs</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#modpropep-score">MODPROPEP score</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#modpropep-score-pl">MODPROPEP_score.pl</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#options">Options</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#modpropep-libgen-pl">MODPROPEP_libgen.pl</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#details">Details</a></li>
 </ul>
 </li>
 </ul>
@@ -158,8 +164,8 @@
 <h1>MODPROPEP Programs<a class="headerlink" href="#modpropep-programs" title="Permalink to this headline">¶</a></h1>
 <p>There should only be one of these per page and this will also – when
 converting to pdf – be used for the chapters.</p>
-<div class="section" id="modpropep-score">
-<h2>MODPROPEP score<a class="headerlink" href="#modpropep-score" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="modpropep-score-pl">
+<h2>MODPROPEP_score.pl<a class="headerlink" href="#modpropep-score-pl" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">__</span>  <span class="n">__</span>  <span class="n">____</span>  <span class="n">_____</span>  <span class="n">_____</span>  <span class="n">_____</span>   <span class="n">____</span>  <span class="n">_____</span>  <span class="n">______</span> <span class="n">_____</span>
 <span class="o">|</span>  \<span class="o">/</span>  <span class="o">|/</span> <span class="n">__</span> \<span class="o">|</span>  <span class="n">__</span> \<span class="o">|</span>  <span class="n">__</span> \<span class="o">|</span>  <span class="n">__</span> \ <span class="o">/</span> <span class="n">__</span> \<span class="o">|</span>  <span class="n">__</span> \<span class="o">|</span>  <span class="n">____</span><span class="o">|</span>  <span class="n">__</span> \
 <span class="o">|</span> \  <span class="o">/</span> <span class="o">|</span> <span class="o">|</span>  <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>  <span class="o">|</span> <span class="o">|</span> <span class="o">|</span><span class="n">__</span><span class="p">)</span> <span class="o">|</span> <span class="o">|</span><span class="n">__</span><span class="p">)</span> <span class="o">|</span> <span class="o">|</span>  <span class="o">|</span> <span class="o">|</span> <span class="o">|</span><span class="n">__</span><span class="p">)</span> <span class="o">|</span> <span class="o">|</span><span class="n">__</span>  <span class="o">|</span> <span class="o">|</span><span class="n">__</span><span class="p">)</span> <span class="o">|</span>
@@ -241,6 +247,98 @@ Options: T (true), F (false)</td></tr>
 $ perl MODPROPEP_score.pl -p complex.pdb -r A -l L -m MJ.mat -d 6 -a CB
 </pre></div>
 </div>
+</div>
+</div>
+<div class="section" id="modpropep-libgen-pl">
+<h2>MODPROPEP_libgen.pl<a class="headerlink" href="#modpropep-libgen-pl" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> __  __  ____  _____  _____  _____   ____  _____  ______ _____
+|  \/  |/ __ \|  __ \|  __ \|  __ \ / __ \|  __ \|  ____|  __ \
+| \  / | |  | | |  | | |__) | |__) | |  | | |__) | |__  | |__) |
+| |\/| | |  | | |  | |  ___/|  _  /| |  | |  ___/|  __| |  ___/
+| |  | | |__| | |__| | |    | | \ \| |__| | |    | |____| |
+|_|  |_|\____/|_____/|_|    |_|  \_\\____/|_|    |______|_|
+                                 _     _ _
+                                | |   (_) |__   __ _  ___ _ __
+                                | |   | | |_ \ / _` |/ _ \ |_ \
+                                | |___| | |_) | (_| |  __/ | | |
+                                |_____|_|_.__/ \__, |\___|_| |_|
+                                               |___/
+</pre></div>
+</div>
+<div class="section" id="id1">
+<h3>Usage<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MODPROPEP_libgen</span><span class="o">.</span><span class="n">pl</span> <span class="o">-</span><span class="n">l</span> <span class="n">library_name</span> <span class="o">-</span><span class="n">t</span> <span class="n">direcory_of_templates</span>
+
+<span class="n">MODPROPEP_libgen</span><span class="o">.</span><span class="n">pl</span> <span class="o">-</span><span class="n">info</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>Options<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-h</span>, <span class="option">--help</span></kbd></td>
+<td>Print this help</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-l</span>, <span class="option">--lib</span></kbd></td>
+<td>Name of the library to be created.</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-t</span>, <span class="option">--temp</span></kbd></td>
+<td>Name of the directory containing the templates. The templates
+should be copied to this directory after necessary formatting</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-i</span>, <span class="option">--info</span></kbd></td>
+<td>Prints library information. (Default F)
+Options
+P=Prints a list of libraries installed.
+“library_name”=Prints information of “library_name” if installed</td></tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+<div class="section" id="details">
+<h3>Details<a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h3>
+<p>Although some programs in libgen can be used as standalone, you will need a library of templates to work with MODPROPEP. MODPROPEP_libgen.pl is the utility to create, maintain and update MODPROPEP library. More than one libraries can be maintained at the same time.</p>
+<dl class="docutils">
+<dt>Requirements</dt>
+<dd><p class="first"><strong>TEMPLATE SOURCE</strong>: You will need to create a directory &lt;TEMPLATE SOURCE&gt; and copy all the templates as “xxxx.pdb” files. The template files should only contain the polypeptide chains that are required to be mutated. All the templates must contain same number of chains and chain identifiers whould be exactly the same in all the templates.</p>
+<p><strong>templates.list</strong>: &lt;TEMPLATES SOURCE&gt; directory should have a file “templates.list” containing a list of all the templates in the following format</p>
+<blockquote>
+<div><blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@chain</span> <span class="n">A</span><span class="p">:</span><span class="n">PROTEIN_KINASE</span>
+<span class="nd">@chain</span> <span class="n">C</span><span class="p">:</span><span class="n">Peptide</span>
+<span class="nd">@index</span><span class="o">=</span><span class="n">A</span>
+<span class="mi">1</span><span class="n">APM</span><span class="o">.</span><span class="n">pdb</span>       <span class="n">AC</span>
+<span class="mi">2</span><span class="n">PHK</span><span class="o">.</span><span class="n">pdb</span>       <span class="n">AC</span>
+<span class="mi">1</span><span class="n">JBP</span><span class="o">.</span><span class="n">pdb</span>       <span class="n">AC</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>The lines starting with <strong>&#64;chain</strong> store the name of the chain in the pdb template file. There should be one line each for each chain in the templates. The line starting with <strong>&#64;index</strong> stores the chains name that are marked for indexing. The protein sequences of the chains marked for indexing are extracted and copied in &lt;chain_name&gt;_&lt;chain_id&gt;.fasta file in the index folder of the library. These sequence files could be indexed using the blast suite. These index files could be searched for detecting the best matching chain for an unknown sequence, which could be used to build its 3D model.</p>
+<p>Rest of the lines in the <strong>templates.list</strong> file are the list of templates in the directory. Each file contain the pdb file names follwed by a &lt;tab&gt; followed by the chain names (without space).</p>
+</div></blockquote>
+<dl class="last docutils">
+<dt><strong>-h, –help</strong></dt>
+<dd>Prints the help.</dd>
+<dt><strong>-l, –lib</strong></dt>
+<dd>The name of the library to be build. A library will be created with this name. If the library name provided already exists then new templates will be added to it.</dd>
+<dt><strong>-t, –temp</strong></dt>
+<dd>The directory containing the source templates. This directory must contain “templates.list” file in the proper format (see above). PDB templates in this directory will be copied to the library specified with -l flag.</dd>
+<dt><strong>-i, –info</strong></dt>
+<dd><p class="first">Prints the information about the installed libraries.</p>
+<p>Options</p>
+<blockquote class="last">
+<div><p>P = Prints a list of installed libraries.</p>
+<p>Library_name = Prints information of library “Library_name” if it exists.</p>
+</div></blockquote>
+</dd>
+</dl>
+</dd>
+</dl>
 </div>
 </div>
 </div>
