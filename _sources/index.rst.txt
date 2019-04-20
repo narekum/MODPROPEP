@@ -11,6 +11,7 @@ Welcome to modpropep's documentation!
    :caption: Contents:
 
    usage/programs
+   usage/formats
 
 Indices and tables
 ==================

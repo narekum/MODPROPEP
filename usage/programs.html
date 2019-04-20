@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>MODPROPEP Programs &mdash; MODPROPEP  documentation</title>
+  <title>MODPROPEP Programs &mdash; MODPROPEP 2.0  documentation</title>
   
 
   
@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="MODPROPEP File Formats" href="formats.html" />
     <link rel="prev" title="Welcome to modpropep’s documentation!" href="../index.html" /> 
 </head>
 
@@ -49,7 +50,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> MODPROPEP
+            <a href="../index.html" class="icon icon-home"> MODPROPEP 2.0
           
 
           
@@ -86,16 +87,19 @@
 <li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#options">Options</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#details">Details</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#modpropep-libgen-pl">MODPROPEP_libgen.pl</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id1">Usage</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id2">Options</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#details">Details</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Details</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="formats.html">MODPROPEP File Formats</a></li>
 </ul>
 
             
@@ -110,7 +114,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">MODPROPEP</a>
+          <a href="../index.html">MODPROPEP 2.0</a>
         
       </nav>
 
@@ -248,6 +252,62 @@ $ perl MODPROPEP_score.pl -p complex.pdb -r A -l L -m MJ.mat -d 6 -a CB
 </pre></div>
 </div>
 </div>
+<div class="section" id="details">
+<h3>Details<a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h3>
+<p>MODPROPEP_score.pl is the main program in the MODPROPEP suite. It calculates a
+numerical score for the interactions between two chains in a protein-protein or
+a protein-peptide complex given in PDB format. The program calculates the
+residues that are in contact with each other at the interface of two chains.
+The criteria for the contacts is chosen by the user. For example two residues
+could be said to be in contact if any two atoms (one atom from each of them)
+from them are within a distance of 4 angstroms. This criteria is too rigid and
+dependent on the side chain conformation of the residues. For this reason the
+user may choose another criteria wherein the residues are said to be in contact
+if their C-beta atoms are within a certain distance range. The program uses
+list of contact to score a contact potential which is the sum of contact
+potential of all the residue-residue contact types at the interface of the complex.
+The contact potential is residue-residue contact is taken from the residue-residue
+pair potential matrix. The results are stored in the output file specified.</p>
+<dl class="docutils">
+<dt><strong>-h, –help</strong></dt>
+<dd>Prints the help</dd>
+<dt><strong>-p, –pdbfile</strong></dt>
+<dd>PDB file containing the coordinates of protein-protein or protein-peptide
+complex. All the chains in the complex should have a distinct identifier.
+(Required)</dd>
+<dt><strong>-r, –rchain</strong></dt>
+<dd>Receptor chain identifier ( e.g. “A” ) in the PDB file. (Required)</dd>
+<dt><strong>-l, –lchain</strong></dt>
+<dd>Ligand chain identifier ( e.g. “C” ) in the PDB file. (Required)</dd>
+<dt><strong>-s, –sequence</strong></dt>
+<dd>File name of protein sequence in fasta format to be scanned. (Required).
+The sequence in this file will be broken down into all possible peptides
+of length equal to that of the ligand in the PDB file. A score will be
+calculated for all of these peptides which will reflect the binding
+affiny of them in complex the receptor in PDB file.</dd>
+<dt><strong>-o, –outfile</strong></dt>
+<dd>Name of the outputfile. (Required)</dd>
+<dt><strong>-m, –matrixfile</strong></dt>
+<dd>Scoring matrix file properly formated. (Required).
+See <a class="reference internal" href="formats.html#pair-potential-matrix"><span class="std std-ref">Pair-Potential Matrix</span></a></dd>
+<dt><strong>-d, –distance</strong></dt>
+<dd>User defined distance for considering two atoms to be in contact with
+each other (Default 10 angstroms)</dd>
+<dt><strong>-a, –atomtype</strong></dt>
+<dd><p class="first">Which atom types should be considered for defining contact between
+amino acids of receptor and ligand  (default “any”)</p>
+<p>Options:</p>
+<p>any=any atoms between receptor and ligand</p>
+<p class="last">cb=c-beta; only C-beta to C-beta distances between receptor and ligand will be considered</p>
+</dd>
+</dl>
+<p><strong>-e, –excludebb</strong></p>
+<blockquote>
+<div><p>Do not consider the backbone atoms for calculating contacts between
+amino acids. (Default F)</p>
+<p>Options: F=False, T=True</p>
+</div></blockquote>
+</div>
 </div>
 <div class="section" id="modpropep-libgen-pl">
 <h2>MODPROPEP_libgen.pl<a class="headerlink" href="#modpropep-libgen-pl" title="Permalink to this headline">¶</a></h2>
@@ -300,8 +360,16 @@ P=Prints a list of libraries installed.
 </table>
 </div></blockquote>
 </div>
-<div class="section" id="details">
-<h3>Details<a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h3>Examples<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ perl MODPROPEP_libgen.pl -l kinases -t /data/naren/kinase/templates
+
+$ perl MODPROPEP_libgen.pl --info
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>Details<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p>Although some programs in libgen can be used as standalone, you will need a library of templates to work with MODPROPEP. MODPROPEP_libgen.pl is the utility to create, maintain and update MODPROPEP library. More than one libraries can be maintained at the same time.</p>
 <dl class="docutils">
 <dt>Requirements</dt>
@@ -318,22 +386,38 @@ P=Prints a list of libraries installed.
 </pre></div>
 </div>
 </div></blockquote>
-<p>The lines starting with <strong>&#64;chain</strong> store the name of the chain in the pdb template file. There should be one line each for each chain in the templates. The line starting with <strong>&#64;index</strong> stores the chains name that are marked for indexing. The protein sequences of the chains marked for indexing are extracted and copied in &lt;chain_name&gt;_&lt;chain_id&gt;.fasta file in the index folder of the library. These sequence files could be indexed using the blast suite. These index files could be searched for detecting the best matching chain for an unknown sequence, which could be used to build its 3D model.</p>
-<p>Rest of the lines in the <strong>templates.list</strong> file are the list of templates in the directory. Each file contain the pdb file names follwed by a &lt;tab&gt; followed by the chain names (without space).</p>
+<p>The lines starting with <strong>&#64;chain</strong> store the name of the chain in the
+pdb template file. There should be one line each for each chain in the
+templates. The line starting with <strong>&#64;index</strong> stores the chains name
+that are marked for indexing. The protein sequences of the chains
+marked for indexing are extracted and copied in
+&lt;chain_name&gt;_&lt;chain_id&gt;.fasta file in the index folder of the library.
+These sequence files could be indexed using the blast suite. These
+index files could be searched for detecting the best matching chain
+for an unknown sequence, which could be used to build its 3D model.</p>
+<p>Rest of the lines in the <strong>templates.list</strong> file are the list of
+templates in the directory. Each file contain the pdb file names
+follwed by a &lt;tab&gt; followed by the chain names (without space).</p>
 </div></blockquote>
 <dl class="last docutils">
 <dt><strong>-h, –help</strong></dt>
 <dd>Prints the help.</dd>
 <dt><strong>-l, –lib</strong></dt>
-<dd>The name of the library to be build. A library will be created with this name. If the library name provided already exists then new templates will be added to it.</dd>
+<dd>The name of the library to be build. A library will be created with
+this name. If the library name provided already exists then new
+templates will be added to it.</dd>
 <dt><strong>-t, –temp</strong></dt>
-<dd>The directory containing the source templates. This directory must contain “templates.list” file in the proper format (see above). PDB templates in this directory will be copied to the library specified with -l flag.</dd>
+<dd>The directory containing the source templates. This directory must
+contain “templates.list” file in the proper format (see above). PDB
+templates in this directory will be copied to the library specified
+with -l flag.</dd>
 <dt><strong>-i, –info</strong></dt>
 <dd><p class="first">Prints the information about the installed libraries.</p>
 <p>Options</p>
 <blockquote class="last">
 <div><p>P = Prints a list of installed libraries.</p>
-<p>Library_name = Prints information of library “Library_name” if it exists.</p>
+<p>Library_name = Prints information of library “Library_name” if it
+exists.</p>
 </div></blockquote>
 </dd>
 </dl>
@@ -350,6 +434,8 @@ P=Prints a list of libraries installed.
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="formats.html" class="btn btn-neutral float-right" title="MODPROPEP File Formats" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../index.html" class="btn btn-neutral float-left" title="Welcome to modpropep’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

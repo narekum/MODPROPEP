@@ -4,6 +4,7 @@ MODPROPEP Programs
 There should only be one of these per page and this will also -- when
 converting to pdf -- be used for the chapters.
 
+
 MODPROPEP_score.pl
 ==================
 
@@ -76,6 +77,73 @@ ________
  $ perl MODPROPEP_score.pl -p complex.pdb -r A -l L -m MJ.mat -d 6 -a CB
 
 
+Details
+_______
+
+MODPROPEP_score.pl is the main program in the MODPROPEP suite. It calculates a 
+numerical score for the interactions between two chains in a protein-protein or
+a protein-peptide complex given in PDB format. The program calculates the 
+residues that are in contact with each other at the interface of two chains. 
+The criteria for the contacts is chosen by the user. For example two residues 
+could be said to be in contact if any two atoms (one atom from each of them) 
+from them are within a distance of 4 angstroms. This criteria is too rigid and 
+dependent on the side chain conformation of the residues. For this reason the 
+user may choose another criteria wherein the residues are said to be in contact
+if their C-beta atoms are within a certain distance range. The program uses 
+list of contact to score a contact potential which is the sum of contact 
+potential of all the residue-residue contact types at the interface of the complex. 
+The contact potential is residue-residue contact is taken from the residue-residue 
+pair potential matrix. The results are stored in the output file specified.   
+
+**-h, --help**
+	Prints the help
+
+**-p, --pdbfile**
+	PDB file containing the coordinates of protein-protein or protein-peptide
+	complex. All the chains in the complex should have a distinct identifier. 
+	(Required)
+
+**-r, --rchain**
+	Receptor chain identifier ( e.g. "A" ) in the PDB file. (Required)
+
+**-l, --lchain**
+	Ligand chain identifier ( e.g. "C" ) in the PDB file. (Required)
+
+**-s, --sequence**
+	File name of protein sequence in fasta format to be scanned. (Required). 
+	The sequence in this file will be broken down into all possible peptides 
+	of length equal to that of the ligand in the PDB file. A score will be 
+	calculated for all of these peptides which will reflect the binding 
+	affiny of them in complex the receptor in PDB file.
+
+**-o, --outfile**
+	Name of the outputfile. (Required)
+
+**-m, --matrixfile**
+	Scoring matrix file properly formated. (Required). 
+	See :ref:`Pair_Potential_Matrix`
+
+**-d, --distance**
+	User defined distance for considering two atoms to be in contact with 
+	each other (Default 10 angstroms)
+
+**-a, --atomtype**        
+	Which atom types should be considered for defining contact between 
+	amino acids of receptor and ligand  (default "any")
+
+	Options:
+
+	any=any atoms between receptor and ligand
+
+	cb=c-beta; only C-beta to C-beta distances between receptor and ligand will be considered
+ 
+**-e, --excludebb**
+
+	Do not consider the backbone atoms for calculating contacts between 
+	amino acids. (Default F)
+
+	Options: F=False, T=True
+
 MODPROPEP_libgen.pl
 ===================
 
@@ -116,6 +184,16 @@ _______
                   P=Prints a list of libraries installed.
                   "library_name"=Prints information of "library_name" if installed
 
+Examples
+________
+
+::
+
+ $ perl MODPROPEP_libgen.pl -l kinases -t /data/naren/kinase/templates
+
+ $ perl MODPROPEP_libgen.pl --info 
+
+
 Details
 _______
 
@@ -136,18 +214,33 @@ Requirements
 		 1JBP.pdb	AC
 
 
-	 The lines starting with **@chain** store the name of the chain in the pdb template file. There should be one line each for each chain in the templates. The line starting with **@index** stores the chains name that are marked for indexing. The protein sequences of the chains marked for indexing are extracted and copied in <chain_name>_<chain_id>.fasta file in the index folder of the library. These sequence files could be indexed using the blast suite. These index files could be searched for detecting the best matching chain for an unknown sequence, which could be used to build its 3D model.
+	 The lines starting with **@chain** store the name of the chain in the
+	 pdb template file. There should be one line each for each chain in the 
+	 templates. The line starting with **@index** stores the chains name 
+	 that are marked for indexing. The protein sequences of the chains 
+	 marked for indexing are extracted and copied in 
+	 <chain_name>_<chain_id>.fasta file in the index folder of the library. 
+	 These sequence files could be indexed using the blast suite. These 
+	 index files could be searched for detecting the best matching chain 
+	 for an unknown sequence, which could be used to build its 3D model.
 
-	 Rest of the lines in the **templates.list** file are the list of templates in the directory. Each file contain the pdb file names follwed by a <tab> followed by the chain names (without space).
+	 Rest of the lines in the **templates.list** file are the list of 
+	 templates in the directory. Each file contain the pdb file names 
+	 follwed by a <tab> followed by the chain names (without space).
 
 	**-h, --help**
 	 Prints the help. 
 
 	**-l, --lib**
-	 The name of the library to be build. A library will be created with this name. If the library name provided already exists then new templates will be added to it.
+	 The name of the library to be build. A library will be created with 
+	 this name. If the library name provided already exists then new 
+	 templates will be added to it.
 
 	**-t, --temp**
-	 The directory containing the source templates. This directory must contain "templates.list" file in the proper format (see above). PDB templates in this directory will be copied to the library specified with -l flag.
+	 The directory containing the source templates. This directory must 
+	 contain "templates.list" file in the proper format (see above). PDB 
+	 templates in this directory will be copied to the library specified 
+	 with -l flag.
 
 	**-i, --info**
 	 Prints the information about the installed libraries.   
@@ -156,7 +249,8 @@ Requirements
 
 	  P = Prints a list of installed libraries. 
 
-	  Library_name = Prints information of library "Library_name" if it exists.
+	  Library_name = Prints information of library "Library_name" if it 
+	  exists.
 
   
  

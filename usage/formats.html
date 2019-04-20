@@ -1,0 +1,266 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>MODPROPEP File Formats &mdash; MODPROPEP 2.0  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="MODPROPEP Programs" href="programs.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> MODPROPEP 2.0
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="programs.html">MODPROPEP Programs</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">MODPROPEP File Formats</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#template-list">template.list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#xxxx-pdb">XXXX.pdb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pair-potential-matrix">Pair-Potential Matrix</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MODPROPEP 2.0</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>MODPROPEP File Formats</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/usage/formats.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="modpropep-file-formats">
+<h1>MODPROPEP File Formats<a class="headerlink" href="#modpropep-file-formats" title="Permalink to this headline">¶</a></h1>
+<p>MODPROPEP suite of programs require several files formatted in specified
+manner. Following are the examples of files as required by various programs.</p>
+<div class="section" id="template-list">
+<h2>template.list<a class="headerlink" href="#template-list" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@chain</span> <span class="n">A</span><span class="p">:</span><span class="n">PROTEIN_KINASE</span>
+<span class="nd">@chain</span> <span class="n">C</span><span class="p">:</span><span class="n">Peptide</span>
+<span class="nd">@index</span><span class="o">=</span><span class="n">A</span>
+<span class="mi">1</span><span class="n">APM</span><span class="o">.</span><span class="n">pdb</span>       <span class="n">AC</span>
+<span class="mi">2</span><span class="n">PHK</span><span class="o">.</span><span class="n">pdb</span>       <span class="n">AC</span>
+<span class="mi">1</span><span class="n">JBP</span><span class="o">.</span><span class="n">pdb</span>       <span class="n">AC</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="xxxx-pdb">
+<h2>XXXX.pdb<a class="headerlink" href="#xxxx-pdb" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="pair-potential-matrix">
+<span id="id1"></span><h2>Pair-Potential Matrix<a class="headerlink" href="#pair-potential-matrix" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Narendra Kumar, PhD</span>
+<span class="c1"># Institute of Cancer Sciences</span>
+<span class="c1"># University of Glasgow</span>
+<span class="c1"># UK</span>
+<span class="c1">#</span>
+<span class="c1"># mailto:narekum@gmail.com</span>
+<span class="c1">#</span>
+<span class="c1"># Pair potentials for protein folding: Choice of reference</span>
+<span class="c1"># states and sensitivity of predicted native states</span>
+<span class="c1"># to variations in the interaction schemes</span>
+<span class="c1">#</span>
+<span class="c1"># MARCOS R. BETANCOURT and D. THIRUMALAI</span>
+<span class="c1"># https://dx.doi.org/10.1110/ps.8.2.361</span>
+<span class="c1">#</span>
+<span class="c1"># Table2</span>
+<span class="c1"># Scoring Matrix for 20 * 20 pairs of amino acid - amino acid combinations</span>
+<span class="c1">#</span>
+<span class="c1">#      Cys     Phe     Leu     Trp     Val     Ile     Met     His     Tyr     Ala     Gly     Pro     Asn     Thr     Ser     Arg     Gln     Asp     Lys     Glu</span>
+<span class="c1">#      C       F       L       W       V       I       M       H       Y       A       G       P       N       T       S       R       Q       D       K       E</span>
+<span class="n">C</span>      <span class="o">-</span><span class="mf">1.34</span>   <span class="o">-</span><span class="mf">0.53</span>   <span class="o">-</span><span class="mf">0.50</span>   <span class="o">-</span><span class="mf">0.74</span>   <span class="o">-</span><span class="mf">0.51</span>   <span class="o">-</span><span class="mf">0.48</span>   <span class="o">-</span><span class="mf">0.49</span>   <span class="o">-</span><span class="mf">0.19</span>   <span class="o">-</span><span class="mf">0.16</span>   <span class="o">-</span><span class="mf">0.26</span>   <span class="o">-</span><span class="mf">0.09</span>   <span class="o">-</span><span class="mf">0.18</span>   <span class="mf">0.28</span>    <span class="mf">0.00</span>    <span class="mf">0.09</span>    <span class="mf">0.32</span>    <span class="mf">0.04</span>    <span class="mf">0.38</span>    <span class="mf">0.35</span>    <span class="mf">0.46</span>
+<span class="n">F</span>      <span class="mf">0.55</span>    <span class="o">-</span><span class="mf">0.82</span>   <span class="o">-</span><span class="mf">0.78</span>   <span class="o">-</span><span class="mf">0.78</span>   <span class="o">-</span><span class="mf">0.67</span>   <span class="o">-</span><span class="mf">0.65</span>   <span class="o">-</span><span class="mf">0.89</span>   <span class="o">-</span><span class="mf">0.19</span>   <span class="o">-</span><span class="mf">0.49</span>   <span class="o">-</span><span class="mf">0.33</span>   <span class="mf">0.11</span>    <span class="o">-</span><span class="mf">0.19</span>   <span class="mf">0.29</span>    <span class="mf">0.00</span>    <span class="mf">0.10</span>    <span class="mf">0.08</span>    <span class="o">-</span><span class="mf">0.04</span>   <span class="mf">0.48</span>    <span class="mf">0.11</span>    <span class="mf">0.34</span>
+<span class="n">L</span>      <span class="mf">0.57</span>    <span class="mf">0.04</span>    <span class="o">-</span><span class="mf">0.81</span>   <span class="o">-</span><span class="mf">0.70</span>   <span class="o">-</span><span class="mf">0.80</span>   <span class="o">-</span><span class="mf">0.79</span>   <span class="o">-</span><span class="mf">0.68</span>   <span class="mf">0.10</span>    <span class="o">-</span><span class="mf">0.44</span>   <span class="o">-</span><span class="mf">0.37</span>   <span class="mf">0.14</span>    <span class="o">-</span><span class="mf">0.08</span>   <span class="mf">0.36</span>    <span class="mf">0.00</span>    <span class="mf">0.26</span>    <span class="mf">0.09</span>    <span class="mf">0.08</span>    <span class="mf">0.62</span>    <span class="mf">0.16</span>    <span class="mf">0.37</span>
+<span class="n">W</span>      <span class="mf">0.30</span>    <span class="o">-</span><span class="mf">0.00</span>   <span class="mf">0.08</span>    <span class="o">-</span><span class="mf">0.74</span>   <span class="o">-</span><span class="mf">0.62</span>   <span class="o">-</span><span class="mf">0.65</span>   <span class="o">-</span><span class="mf">0.94</span>   <span class="o">-</span><span class="mf">0.46</span>   <span class="o">-</span><span class="mf">0.55</span>   <span class="o">-</span><span class="mf">0.40</span>   <span class="o">-</span><span class="mf">0.24</span>   <span class="o">-</span><span class="mf">0.73</span>   <span class="o">-</span><span class="mf">0.09</span>   <span class="mf">0.00</span>    <span class="mf">0.07</span>    <span class="o">-</span><span class="mf">0.41</span>   <span class="o">-</span><span class="mf">0.11</span>   <span class="mf">0.06</span>    <span class="o">-</span><span class="mf">0.28</span>   <span class="o">-</span><span class="mf">0.15</span>
+<span class="n">V</span>      <span class="mf">0.52</span>    <span class="mf">0.10</span>    <span class="o">-</span><span class="mf">0.04</span>   <span class="mf">0.11</span>    <span class="o">-</span><span class="mf">0.72</span>   <span class="o">-</span><span class="mf">0.68</span>   <span class="o">-</span><span class="mf">0.47</span>   <span class="mf">0.18</span>    <span class="o">-</span><span class="mf">0.27</span>   <span class="o">-</span><span class="mf">0.38</span>   <span class="mf">0.04</span>    <span class="o">-</span><span class="mf">0.08</span>   <span class="mf">0.39</span>    <span class="mf">0.00</span>    <span class="mf">0.25</span>    <span class="mf">0.17</span>    <span class="mf">0.17</span>    <span class="mf">0.66</span>    <span class="mf">0.16</span>    <span class="mf">0.41</span>
+<span class="n">I</span>      <span class="mf">0.49</span>    <span class="mf">0.06</span>    <span class="o">-</span><span class="mf">0.08</span>   <span class="mf">0.02</span>    <span class="o">-</span><span class="mf">0.02</span>   <span class="o">-</span><span class="mf">0.60</span>   <span class="o">-</span><span class="mf">0.60</span>   <span class="mf">0.19</span>    <span class="o">-</span><span class="mf">0.33</span>   <span class="o">-</span><span class="mf">0.35</span>   <span class="mf">0.21</span>    <span class="mf">0.05</span>    <span class="mf">0.55</span>    <span class="mf">0.00</span>    <span class="mf">0.35</span>    <span class="mf">0.18</span>    <span class="mf">0.14</span>    <span class="mf">0.54</span>    <span class="mf">0.21</span>    <span class="mf">0.38</span>
+<span class="n">M</span>      <span class="mf">0.46</span>    <span class="o">-</span><span class="mf">0.20</span>   <span class="mf">0.00</span>    <span class="o">-</span><span class="mf">0.29</span>   <span class="mf">0.17</span>    <span class="o">-</span><span class="mf">0.02</span>   <span class="o">-</span><span class="mf">0.56</span>   <span class="o">-</span><span class="mf">0.17</span>   <span class="o">-</span><span class="mf">0.51</span>   <span class="o">-</span><span class="mf">0.23</span>   <span class="mf">0.08</span>    <span class="o">-</span><span class="mf">0.16</span>   <span class="mf">0.32</span>    <span class="mf">0.00</span>    <span class="mf">0.32</span>    <span class="mf">0.17</span>    <span class="o">-</span><span class="mf">0.01</span>   <span class="mf">0.62</span>    <span class="mf">0.22</span>    <span class="mf">0.24</span>
+<span class="n">H</span>      <span class="mf">0.64</span>    <span class="mf">0.38</span>    <span class="mf">0.67</span>    <span class="mf">0.08</span>    <span class="mf">0.70</span>    <span class="mf">0.66</span>    <span class="mf">0.28</span>    <span class="o">-</span><span class="mf">0.33</span>   <span class="o">-</span><span class="mf">0.21</span>   <span class="mf">0.21</span>    <span class="mf">0.23</span>    <span class="o">-</span><span class="mf">0.05</span>   <span class="mf">0.10</span>    <span class="mf">0.00</span>    <span class="mf">0.15</span>    <span class="mf">0.04</span>    <span class="mf">0.22</span>    <span class="o">-</span><span class="mf">0.22</span>   <span class="mf">0.26</span>    <span class="o">-</span><span class="mf">0.11</span>
+<span class="n">Y</span>      <span class="mf">0.64</span>    <span class="mf">0.05</span>    <span class="mf">0.10</span>    <span class="o">-</span><span class="mf">0.04</span>   <span class="mf">0.22</span>    <span class="mf">0.10</span>    <span class="o">-</span><span class="mf">0.10</span>   <span class="mf">0.09</span>    <span class="o">-</span><span class="mf">0.27</span>   <span class="o">-</span><span class="mf">0.15</span>   <span class="o">-</span><span class="mf">0.04</span>   <span class="o">-</span><span class="mf">0.40</span>   <span class="mf">0.01</span>    <span class="mf">0.00</span>    <span class="mf">0.07</span>    <span class="o">-</span><span class="mf">0.37</span>   <span class="o">-</span><span class="mf">0.18</span>   <span class="o">-</span><span class="mf">0.07</span>   <span class="o">-</span><span class="mf">0.40</span>   <span class="o">-</span><span class="mf">0.16</span>
+<span class="n">A</span>      <span class="mf">0.51</span>    <span class="mf">0.18</span>    <span class="mf">0.14</span>    <span class="mf">0.07</span>    <span class="mf">0.08</span>    <span class="mf">0.05</span>    <span class="mf">0.15</span>    <span class="mf">0.48</span>    <span class="mf">0.08</span>    <span class="o">-</span><span class="mf">0.20</span>   <span class="o">-</span><span class="mf">0.03</span>   <span class="mf">0.07</span>    <span class="mf">0.24</span>    <span class="mf">0.00</span>    <span class="mf">0.15</span>    <span class="mf">0.27</span>    <span class="mf">0.21</span>    <span class="mf">0.30</span>    <span class="mf">0.20</span>    <span class="mf">0.43</span>
+<span class="n">G</span>      <span class="mf">0.68</span>    <span class="mf">0.62</span>    <span class="mf">0.65</span>    <span class="mf">0.23</span>    <span class="mf">0.50</span>    <span class="mf">0.61</span>    <span class="mf">0.46</span>    <span class="mf">0.50</span>    <span class="mf">0.20</span>    <span class="mf">0.17</span>    <span class="o">-</span><span class="mf">0.20</span>   <span class="o">-</span><span class="mf">0.01</span>   <span class="mf">0.10</span>    <span class="mf">0.00</span>    <span class="mf">0.10</span>    <span class="mf">0.14</span>    <span class="mf">0.20</span>    <span class="mf">0.17</span>    <span class="mf">0.12</span>    <span class="mf">0.48</span>
+<span class="n">P</span>      <span class="mf">0.53</span>    <span class="mf">0.25</span>    <span class="mf">0.36</span>    <span class="o">-</span><span class="mf">0.32</span>   <span class="mf">0.31</span>    <span class="mf">0.38</span>    <span class="mf">0.16</span>    <span class="mf">0.15</span>    <span class="o">-</span><span class="mf">0.23</span>   <span class="mf">0.20</span>    <span class="mf">0.12</span>    <span class="o">-</span><span class="mf">0.07</span>   <span class="mf">0.13</span>    <span class="mf">0.00</span>    <span class="mf">0.17</span>    <span class="o">-</span><span class="mf">0.02</span>   <span class="o">-</span><span class="mf">0.05</span>   <span class="mf">0.25</span>    <span class="mf">0.12</span>    <span class="mf">0.26</span>
+<span class="n">N</span>      <span class="mf">0.97</span>    <span class="mf">0.72</span>    <span class="mf">0.78</span>    <span class="mf">0.30</span>    <span class="mf">0.77</span>    <span class="mf">0.87</span>    <span class="mf">0.62</span>    <span class="mf">0.28</span>    <span class="mf">0.17</span>    <span class="mf">0.36</span>    <span class="mf">0.22</span>    <span class="mf">0.18</span>    <span class="o">-</span><span class="mf">0.04</span>   <span class="mf">0.00</span>    <span class="mf">0.14</span>    <span class="mf">0.02</span>    <span class="o">-</span><span class="mf">0.05</span>   <span class="o">-</span><span class="mf">0.12</span>   <span class="o">-</span><span class="mf">0.14</span>   <span class="o">-</span><span class="mf">0.01</span>
+<span class="n">T</span>      <span class="mf">0.67</span>    <span class="mf">0.41</span>    <span class="mf">0.41</span>    <span class="mf">0.37</span>    <span class="mf">0.36</span>    <span class="mf">0.30</span>    <span class="mf">0.28</span>    <span class="mf">0.17</span>    <span class="mf">0.14</span>    <span class="mf">0.10</span>    <span class="mf">0.10</span>    <span class="mf">0.04</span>    <span class="mf">0.02</span>    <span class="mf">0.00</span>    <span class="mf">0.00</span>    <span class="mf">0.00</span>    <span class="mf">0.00</span>    <span class="mf">0.00</span>    <span class="mf">0.00</span>    <span class="mf">0.00</span>
+<span class="n">S</span>      <span class="mf">0.70</span>    <span class="mf">0.44</span>    <span class="mf">0.60</span>    <span class="mf">0.37</span>    <span class="mf">0.54</span>    <span class="mf">0.58</span>    <span class="mf">0.53</span>    <span class="mf">0.25</span>    <span class="mf">0.14</span>    <span class="mf">0.18</span>    <span class="mf">0.13</span>    <span class="mf">0.14</span>    <span class="mf">0.09</span>    <span class="o">-</span><span class="mf">0.06</span>   <span class="mf">0.13</span>    <span class="mf">0.12</span>    <span class="mf">0.25</span>    <span class="mf">0.01</span>    <span class="mf">0.10</span>    <span class="mf">0.10</span>
+<span class="n">R</span>      <span class="mf">0.93</span>    <span class="mf">0.42</span>    <span class="mf">0.43</span>    <span class="o">-</span><span class="mf">0.11</span>   <span class="mf">0.46</span>    <span class="mf">0.41</span>    <span class="mf">0.39</span>    <span class="mf">0.14</span>    <span class="o">-</span><span class="mf">0.30</span>   <span class="mf">0.30</span>    <span class="mf">0.18</span>    <span class="o">-</span><span class="mf">0.05</span>   <span class="o">-</span><span class="mf">0.02</span>   <span class="o">-</span><span class="mf">0.06</span>   <span class="o">-</span><span class="mf">0.01</span>   <span class="mf">0.13</span>    <span class="o">-</span><span class="mf">0.12</span>   <span class="o">-</span><span class="mf">0.71</span>   <span class="mf">0.50</span>    <span class="o">-</span><span class="mf">0.75</span>
+<span class="n">Q</span>      <span class="mf">0.64</span>    <span class="mf">0.30</span>    <span class="mf">0.42</span>    <span class="mf">0.19</span>    <span class="mf">0.46</span>    <span class="mf">0.37</span>    <span class="mf">0.20</span>    <span class="mf">0.32</span>    <span class="o">-</span><span class="mf">0.11</span>   <span class="mf">0.24</span>    <span class="mf">0.23</span>    <span class="o">-</span><span class="mf">0.08</span>   <span class="o">-</span><span class="mf">0.10</span>   <span class="o">-</span><span class="mf">0.07</span>   <span class="mf">0.11</span>    <span class="o">-</span><span class="mf">0.25</span>   <span class="mf">0.14</span>    <span class="mf">0.12</span>    <span class="o">-</span><span class="mf">0.20</span>   <span class="mf">0.10</span>
+<span class="n">D</span>      <span class="mf">0.92</span>    <span class="mf">0.75</span>    <span class="mf">0.89</span>    <span class="mf">0.30</span>    <span class="mf">0.89</span>    <span class="mf">0.70</span>    <span class="mf">0.77</span>    <span class="o">-</span><span class="mf">0.19</span>   <span class="o">-</span><span class="mf">0.07</span>   <span class="mf">0.26</span>    <span class="mf">0.14</span>    <span class="mf">0.15</span>    <span class="o">-</span><span class="mf">0.24</span>   <span class="o">-</span><span class="mf">0.14</span>   <span class="o">-</span><span class="mf">0.19</span>   <span class="o">-</span><span class="mf">0.91</span>   <span class="o">-</span><span class="mf">0.08</span>   <span class="mf">0.27</span>    <span class="o">-</span><span class="mf">0.69</span>   <span class="mf">0.40</span>
+<span class="n">K</span>      <span class="mf">0.83</span>    <span class="mf">0.33</span>    <span class="mf">0.38</span>    <span class="o">-</span><span class="mf">0.10</span>   <span class="mf">0.33</span>    <span class="mf">0.32</span>    <span class="mf">0.31</span>    <span class="mf">0.23</span>    <span class="o">-</span><span class="mf">0.46</span>   <span class="mf">0.11</span>    <span class="mf">0.03</span>    <span class="o">-</span><span class="mf">0.03</span>   <span class="o">-</span><span class="mf">0.31</span>   <span class="o">-</span><span class="mf">0.19</span>   <span class="o">-</span><span class="mf">0.15</span>   <span class="mf">0.25</span>    <span class="o">-</span><span class="mf">0.46</span>   <span class="o">-</span><span class="mf">1.01</span>   <span class="mf">0.38</span>    <span class="o">-</span><span class="mf">0.87</span>
+<span class="n">E</span>      <span class="mf">0.90</span>    <span class="mf">0.53</span>    <span class="mf">0.55</span>    <span class="o">-</span><span class="mf">0.01</span>   <span class="mf">0.55</span>    <span class="mf">0.45</span>    <span class="mf">0.30</span>    <span class="o">-</span><span class="mf">0.17</span>   <span class="o">-</span><span class="mf">0.25</span>   <span class="mf">0.30</span>    <span class="mf">0.36</span>    <span class="mf">0.07</span>    <span class="o">-</span><span class="mf">0.21</span>   <span class="o">-</span><span class="mf">0.22</span>   <span class="o">-</span><span class="mf">0.19</span>   <span class="o">-</span><span class="mf">1.04</span>   <span class="o">-</span><span class="mf">0.20</span>   <span class="mf">0.04</span>    <span class="o">-</span><span class="mf">1.28</span>   <span class="mf">0.45</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="programs.html" class="btn btn-neutral float-left" title="MODPROPEP Programs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Narendra Kumar
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
