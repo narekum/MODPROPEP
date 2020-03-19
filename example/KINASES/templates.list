@@ -1,0 +1,6 @@
+@chain C:Peptide
+@chain A:PROTEIN_KINASE
+@index=A
+1JBP.pdb	AC	AC
+1QMZ.pdb	AC	AC
+2PHK.pdb	AC	AC

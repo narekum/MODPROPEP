@@ -6,7 +6,7 @@ use warnings;
 
 use Exporter qw(import);
 
-our @EXPORT_OK = qw(GETPROTEINCOORDINATES GETDNACOORDINATES GETCONTACTS GETPPCONTACTS);
+our @EXPORT_OK = qw(GETPROTEINCOORDINATES GETDNACOORDINATES GETCONTACTS GETPPCONTACTS GETCHAIN_IDS);
 
 sub PROCESSPDB {
 	my ($nucpdb,$nucchain,$nucref,$proteinpdb,$proteinchain,$proteinref,$cutoff)=@_;
@@ -219,6 +219,22 @@ sub RESNUMBERS {
 	return (%resnumbers);
 }
 
+sub RESCHAIN {
+	my (@coords)=@_;
+	my %resnumbers = RESNUMBERS(@coords);
+	my %singleletteraa = PDBRESIDUES("aa");
+	my $reschain ;
+	foreach my $resnumber ( sort { $a <=> $b } keys %resnumbers ) {
+		if ( defined $singleletteraa{ $resnumbers{ $resnumber } } ) {
+			$reschain .=  $singleletteraa{ $resnumbers{ $resnumber } } ;
+		} else {
+			print "   Residue \"", $resnumbers{ $resnumber } , " at " , $resnumber  ,"\" is not defined !!! Please check and run again\n\n";
+			exit;
+		}
+	}
+	return $reschain ;
+}
+
 sub DISTANCE {
 	my ($atom1,$atom2)=@_;
 	my ($x, $y, $z, $x1, $y1, $z1);
@@ -230,6 +246,94 @@ sub DISTANCE {
 	$z1 = substr($atom2,46,8);
 	my $distance = sqrt((($x-$x1)**2)+(($y-$y1)**2)+(($z-$z1)**2));
 	return sprintf ( "%.2f" , $distance ) ;
+}
+
+sub GETCHAIN {
+        my ($pdbfile,$chainid) = @_ ;
+        my @coordinates ;
+        open OP, $pdbfile || die "Can not open the file $pdbfile: $! \n";
+        while (<OP>) {
+                if  ( $_ =~ /^ATOM|^HETATM/ && substr($_,21,1) eq $chainid) {
+                        chomp ;
+                        push @coordinates, $_ ;
+                }
+
+        }
+	close OP ;
+        return @coordinates ;
+}
+
+sub RENUMCHAIN {
+        my @coordinates = @_ ;
+        my $last_residue_name = '';
+	my $growing_chain_no = 0 ;
+        my $last_residue_number = 0;
+        my @renumbered_coords = ();
+        foreach ( @coordinates ) {
+                my $residue_name = substr($_,17,3) ;
+                my $residue_number = substr($_,22,4);
+                $residue_number =~ s/\s+//g ;
+                if ( m/^ATOM|^HETATM/) {
+                        # Increment the residue number if the residue name changes
+                        if ( $residue_number != $last_residue_number ) {
+                                $growing_chain_no++ ;
+                                $last_residue_number = $residue_number ;
+                                $last_residue_name = $residue_name ;
+                        }
+                }
+                substr($_,17,3) = $residue_name ;
+                substr($_,22,4) = sprintf ("%4s",$growing_chain_no);
+                push @renumbered_coords, $_ ;
+        }
+        return @renumbered_coords ;
+}
+
+sub RENUM_ATOMS {
+        my (@coords) = @_ ;
+        my $atomno = 0 ;
+        my @renumbered_atoms=();
+        foreach (@coords) {
+                if ( $_ =~ /^TER/ ) {
+                        push @renumbered_atoms, $_;
+                } else {
+                        $atomno++ ;
+                        substr($_,7,4) = sprintf ("%4s",$atomno) ;
+                        push @renumbered_atoms, $_;
+                        #print "$_\n";
+                }
+
+        }
+        return (@renumbered_atoms) ;
+}
+
+sub GETCHAIN_IDS {
+        my ($pdbfile) = @_ ;
+        my %chainids =() ;
+        my @ids=();
+        open OP, $pdbfile || die "Can not open the file $pdbfile: $! \n";
+        while (<OP>) {
+                if  ( $_ =~ /^ATOM|^HETATM/ ) {
+                        my $chainid = substr($_,21,1);
+                        $chainids{$chainid} = 1 ;
+                }
+
+        }
+        close OP ;
+        @ids= sort keys %chainids ;
+        return (@ids) ;
+}
+
+sub RENAME_CHAIN {
+        my ($coords,$from_chain,$to_chain) = @_ ;
+	my @coords = @$coords ;
+        my @renamed_chain=();
+        foreach ( @coords) {
+                if ( substr($_,21,1) eq $from_chain ) {
+                        substr($_,21,1) = $to_chain ;
+                        push @renamed_chain,$_;
+                }
+        }
+	return (@renamed_chain);
 }
 
 1;

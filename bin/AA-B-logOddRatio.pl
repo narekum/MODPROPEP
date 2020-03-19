@@ -1,4 +1,13 @@
 #!/usr/bin/perl 
+
+BEGIN {
+        use Cwd qw(realpath cwd);
+        use File::Basename;
+        our ($fn, $dir) = fileparse(realpath($0));
+}
+
+use lib "$dir/../lib" ;
+
 ($contactfreqfile)=@ARGV;
 
 use READMATRIX ;
